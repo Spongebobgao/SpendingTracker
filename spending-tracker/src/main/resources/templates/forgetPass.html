@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spending Tracker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href='https://fonts.googleapis.com/css?family= Amethysta'
+	rel='stylesheet'>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header th:insert="fragment.html :: header"> </header>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-11 col-md-6">
+				<h1 align="center">Let's reset your password</h1>
+				<form th:object="${user}" th:action="@{/forgetPass}" method="post">
+					<div class="form-group">
+						<label>Please enter your email address</label> <input type="email"
+							class="form-control" th:field="*{email}"
+							aria-describedby="emailHelp" required>
+					</div>
+					<div class="form-group" th:if="${emailedMessage}">
+						<label>Please enter the code</label> <input type="text"
+							class="form-control" th:field="*{code}" required>
+					</div>
+					<p th:text="${codeErrorMessage}" align="center" style="color: red" />
+					<p th:text="${emailedMessage}" align="center" style="color: green" />
+					<p th:text="${invaildEmail}" align="center" style="color: red" />
+					<div align="center">
+						<button type="submit" class="btn btn-primary">Confirm</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

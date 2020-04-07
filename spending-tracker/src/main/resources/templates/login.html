@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Log In</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href='https://fonts.googleapis.com/css?family=Amethysta'
+	rel='stylesheet'>
+<link rel="stylesheet" href="css/style.css">
+<style>
+</style>
+</head>
+
+<body >
+	<header th:insert="fragment.html :: header"> </header>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-11 col-md-6">
+				<h1 th:text="${registerSuccessed}"
+					align="center"></h1>
+				<h1 align="center">Please Login</h1>
+				<p th:text="${loginError}" align="center" style="color: red" />
+				<p th:text="${resetPassDone}" align="center" style="color:green"/>
+				<form th:object="${user}" th:action="@{/login}" method="post">
+					<div class="form-group">
+						<label>Email address</label> <input type="email"
+							class="form-control" th:field="*{email}"
+							aria-describedby="emailHelp" required>
+					</div>
+					<div class="form-group">
+						<label>Password</label> <input type="password"
+							class="form-control" th:field="*{password}" required>
+					</div>
+					<div align="center">
+						<button type="submit" class="btn btn-primary">Log In</button>
+					</div>
+					<div align="center">
+						<a th:href="@{/forgetPass}">Forget Password?</a>
+					</div>
+					<div align="center">
+						<a th:href="@{/register}">Not a member? Register now.</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

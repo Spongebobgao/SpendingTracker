@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Spending Tracker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href='https://fonts.googleapis.com/css?family=Amethysta'
+	rel='stylesheet'>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<header style="position:sticky;top:0" th:insert="fragment.html :: header"> </header>
+	<div class="container">
+		<h2 align="center">Are you ready to record your expenses?</h2>	
+	</div>
+	<div align="center">
+	<img alt="car" th:src="@{images/car.jpg}"/>
+	<img  alt="closet" th:src="@{images/closet.jpg}"/>
+	</div>
+	<br>
+	<div align="center">
+	<img  alt="food" th:src="@{images/food.jpg}"/>
+	<img  alt="house" th:src="@{images/house.jpg}"/>
+	</div>
+</body>
+
+</html>
